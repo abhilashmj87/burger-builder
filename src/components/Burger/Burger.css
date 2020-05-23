@@ -1,0 +1,9 @@
+.amj_burger {
+    width: 350px;
+    height: 300px;
+    overflow: scroll;
+    margin: auto;
+    text-align: center;
+    font-size: 1.2rem;
+    font-weight: 500;
+}

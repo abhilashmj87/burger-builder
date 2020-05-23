@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import './App.css';
+import Layout from './components/Layout/Layout';
+import BurgerBuilder from './containers/BurgerBuilder/BurgerBuilder';
 
 export default class App extends Component {
 
@@ -21,7 +22,9 @@ export default class App extends Component {
 
     return (
       <div>
-        Welcome
+        <Layout>
+          <BurgerBuilder></BurgerBuilder>
+        </Layout>
       </div>
     );
 

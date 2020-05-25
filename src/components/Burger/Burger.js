@@ -11,13 +11,13 @@ const Burger = (props) => {
         }
     });
     if(transformedIngredients.length === 0) {
-        transformedIngredients.push(<p>Please add ingredients</p>);
+        transformedIngredients.push(<p key="AddIngred">Please add ingredients</p>);
     }
     return (
         <div className={classes.amj_burger}>
-            <BurgerIngredients type="bread-top-with-seed"></BurgerIngredients>
+            <BurgerIngredients key="bread-top-with-seed" type="bread-top-with-seed"></BurgerIngredients>
             {transformedIngredients}
-            <BurgerIngredients type="bread-bottom"></BurgerIngredients>
+            <BurgerIngredients key="bread-bottom" type="bread-bottom"></BurgerIngredients>
         </div>
     );
 }

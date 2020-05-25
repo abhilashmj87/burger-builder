@@ -27,6 +27,7 @@ const BuildControls = (props) => {
         <button className={classes.Less} onClick={props.ingredientRemoved.bind(null, 'cheese')}>Less</button>
         <button className={classes.More} onClick={props.ingredientAdded.bind(null, 'cheese')}>More</button>
       </div>
+        <button className={classes.OrderButton} disabled={props.orderdisabled} onClick={props.purchase}>Order Now</button>
     </div>
   );
 }

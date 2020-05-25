@@ -1,8 +1,9 @@
 .amj_burger {
-    width: 350px;
-    height: 300px;
-    overflow: scroll;
+    min-width: 350px;
+    max-width: 700px;
+    height: 350px;
     margin: auto;
+    overflow: auto;
     text-align: center;
     font-size: 1.2rem;
     font-weight: 500;

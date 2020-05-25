@@ -4,13 +4,13 @@ import classes from './BurgerIngredients.css';
 const BurgerIngredients = (props) => {
   let ingredient = null;
   if (props.type === undefined) {
-    return null;
+    return ingredient;
   } 
   switch (props.type) {
     case 'bread-bottom':
       ingredient = <div className={classes.BreadBottom}></div>;
       break;
-    case 'bread-top':
+    case 'bread-top-with-seed':
       ingredient = (
         <div className={classes.BreadTop}>
           <div className={classes.Seeds1}></div>
@@ -18,6 +18,9 @@ const BurgerIngredients = (props) => {
         </div>
       );
       break;
+      case 'bread-top-without-seed':
+        ingredient = <div className={classes.BreadTop}></div>;
+        break;
     case 'meat':
       ingredient = <div className={classes.Meat}></div>;
       break;

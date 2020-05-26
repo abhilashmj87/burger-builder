@@ -1,4 +1,6 @@
 import React from 'react';
+import Button from '@material-ui/core/Button';
+import Grid from '@material-ui/core/Grid';
 
 const OrderSummary = (props) => {
   const ingredientSummary = Object.keys(props.ingredients).map ( (el, i) => {
@@ -11,7 +13,16 @@ const OrderSummary = (props) => {
       <ul>
         {ingredientSummary}
       </ul>
-      <Button color="primary">Checkout</Button>
+      <Grid container spacing={1} alignItems="center">
+        <Grid item xs={6}>
+          Total Price: <strong>${props.totalPrice.toFixed(2)}</strong>
+        </Grid>
+        <Grid item xs={3}>
+        </Grid>
+        <Grid item xs={3}>
+          <Button color="primary">Checkout</Button>
+        </Grid>
+      </Grid>
     </div>
   )
 }

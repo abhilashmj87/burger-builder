@@ -15,17 +15,17 @@ const BurgerToolbar = (props) => {
       <AppBar position="sticky">
         <Toolbar>
           <Grid container spacing={1} alignItems="center">
-            <Grid item xs={1}>
-              <IconButton key="menuicon" edge="start" color="inherit" aria-label="menu">
+            <Grid item xs="auto">
+              <IconButton key="menuicon" edge="start" color="inherit" aria-label="menu" onClick={props.controlDrawer}>
                 <MenuIcon />
               </IconButton> 
             </Grid>
-            <Grid item xs={4}>
+            <Grid item xs={10} sm={6} md={4}>
               <h1>Abhi's Burgers</h1>
             </Grid>
-            <Grid item xs={5}>
+            <Grid item sm={2} md={5}>
             </Grid>
-            <Grid item xs={2}>
+            <Grid item sm={3} md={2}>
               <ToggleButtonGroup className={classes.buttonsetBkgd} onChange={routingHandler} value={alignment} exclusive aria-label="Routing mech">
                 <ToggleButton value="builder" aria-label="Burger Builder">
                   build Burger
@@ -36,8 +36,6 @@ const BurgerToolbar = (props) => {
               </ToggleButtonGroup>
             </Grid>
           </Grid>
-          
-
         </Toolbar>
       </AppBar>
     </div>

@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import Layout from './components/Layout/Layout';
-import BurgerBuilder from './containers/BurgerBuilder/BurgerBuilder';
 
 export default class App extends Component {
 
@@ -21,11 +20,8 @@ export default class App extends Component {
   render() {
 
     return (
-      <div>
         <Layout>
-          <BurgerBuilder></BurgerBuilder>
         </Layout>
-      </div>
     );
 
     // tip: Internally, React writes the below code to replace the jsx code above. Since the below code is complex to code, we use the above jsx syntax.

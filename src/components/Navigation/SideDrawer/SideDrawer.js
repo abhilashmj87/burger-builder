@@ -7,6 +7,9 @@ const SideDrawer = (props) => {
     <div>
       <SwipeableDrawer anchor="left" open={props.drawerOpen} onClose={props.drawerOnClose} onOpen={props.drawerOnOpen}>
         <List component="nav" aria-label="mobile nav routing" className={classes.listLength}>
+          <ListItem>
+            <ListItemText secondary="Menu" />
+          </ListItem>
           <ListItem button>
             <ListItemText primary="Builder" />
           </ListItem>

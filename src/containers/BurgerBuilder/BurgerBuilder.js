@@ -30,6 +30,7 @@ export default class BurgerBuilder extends Component {
     },
     totalPrice: 4.0,
     purchasing: false,
+    orderDisabled: true,
   };
 
 
@@ -40,25 +41,22 @@ export default class BurgerBuilder extends Component {
     bacon: 0.7,
   };
 
-  // tip: when the state changes, the state change automatically triggers a lifecycle that looks for changes in components properties as well. That is how orderDisabled change flows through even though it's outside the state.
-  orderDisabled = true;
-
   addIngredientHandler = (type) => {
     const newPrice = this.state.totalPrice + this.PRICES[type];
 
-    // tip: state cannot be directly mutated in react, we have to use the setState methods to se the state with complete data. So creating the object needed to be pushed to state:
     const updatedIngredient = {...this.state.ingredients};
     ++updatedIngredient[type];
-    this.orderDisabled = false;
     this.setState({
       ingredients: updatedIngredient,
       totalPrice: newPrice,
+      orderDisabled: false,
     });
   };
 
   removeIngredientHandler = (type) => {
     let updatedIngredient = {...this.state.ingredients};
     let newPrice = this.state.totalPrice - this.PRICES[type];
+    let orderDis = false;
 
     // Make sure the price never goes below 4
     if (newPrice < 4 ) {
@@ -66,14 +64,15 @@ export default class BurgerBuilder extends Component {
     }
 
     // Iterate through the ingredient object values to see if all ingredients are 0. If they are 0, then set orderDisabled to true
-    Object.values(updatedIngredient).forEach( val => {
-      if(val > 0) {
-        this.orderDisabled = false;
-        return;
+    for (let i = 0 ; i < Object.values(updatedIngredient).length ; i++) {
+      console.log(Object.values(updatedIngredient)[i]);
+      if(Object.values(updatedIngredient)[i] > 0) {
+        orderDis = false;
+        break;
       } else {
-        this.orderDisabled = true;
+        orderDis = true;
       }
-    });
+    };
     
     // tip: state cannot be directly mutated in react, we have to use the setState methods to se the state with complete data. So creating the object needed to be pushed to state:
     if(updatedIngredient[type] > 0) {
@@ -82,6 +81,7 @@ export default class BurgerBuilder extends Component {
     this.setState({
       ingredients: updatedIngredient,
       totalPrice: newPrice,
+      orderDisabled: orderDis,
     });
   };
 
@@ -100,7 +100,7 @@ export default class BurgerBuilder extends Component {
           <OrderSummary ingredients={this.state.ingredients} totalPrice={this.state.totalPrice}></OrderSummary>
         </Modal>
         <Burger ingredients={this.state.ingredients}></Burger>
-        <BuildControls price={this.state.totalPrice} ingredientAdded={this.addIngredientHandler} ingredientRemoved={this.removeIngredientHandler} orderdisabled={this.orderDisabled} purchase={this.purchaseHandler}></BuildControls>
+        <BuildControls price={this.state.totalPrice} ingredientAdded={this.addIngredientHandler} ingredientRemoved={this.removeIngredientHandler} orderdisabled={this.state.orderDisabled} purchase={this.purchaseHandler}></BuildControls>
       </div>
     );
   }

@@ -26,14 +26,15 @@ const BurgerToolbar = (props) => {
             <Grid item sm={2} md={5}>
             </Grid>
             <Grid item sm={3} md={2}>
-              <ToggleButtonGroup className={classes.buttonsetBkgd} onChange={routingHandler} value={alignment} exclusive aria-label="Routing mech">
+              {/* TODO: figure out how to use the grid classes to hide this in mobile format */}
+              {/* <ToggleButtonGroup className={classes.buttonsetBkgd} onChange={routingHandler} value={alignment} exclusive aria-label="Routing mech">
                 <ToggleButton value="builder" aria-label="Burger Builder">
                   build Burger
                 </ToggleButton>
                 <ToggleButton value="checkout" aria-label="Checkout">
                   Checkout
                 </ToggleButton>
-              </ToggleButtonGroup>
+              </ToggleButtonGroup> */}
             </Grid>
           </Grid>
         </Toolbar>

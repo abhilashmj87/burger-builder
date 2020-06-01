@@ -26,18 +26,12 @@ const BuildControls = (props) => {
         </Grid>
 
         <Grid item xs={12}>
-          <div className={classes.Label}>Salad</div>
-          <Button variant="contained" onClick={props.ingredientRemoved.bind(null, 'salad')}>Less</Button>
-          <Button variant="contained" onClick={props.ingredientAdded.bind(null, 'salad')}>More</Button>
-        </Grid>
-
-        <Grid item xs={12}>
           <div className={classes.Label}>Cheese</div>
           <Button variant="contained" onClick={props.ingredientRemoved.bind(null, 'cheese')}>Less</Button>
           <Button variant="contained" onClick={props.ingredientAdded.bind(null, 'cheese')}>More</Button>
         </Grid>
       </Grid>
-        <Button variant="contained" color="primary" className={classes.OrderButton} disabled={props.orderdisabled} onClick={props.purchase}>Order Now</Button>
+        <Button variant="contained" color="secondary" className={classes.OrderButton} disabled={props.orderdisabled} onClick={props.purchase}>Order Now</Button>
     </div>
   );
 }

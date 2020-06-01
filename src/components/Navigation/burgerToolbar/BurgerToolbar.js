@@ -1,14 +1,8 @@
 import React from 'react';
 import { AppBar, Toolbar, IconButton, Grid } from '@material-ui/core';
-import { ToggleButtonGroup, ToggleButton } from '@material-ui/lab';
 import MenuIcon from '@material-ui/icons/Menu';
-import classes from './BurgerToolbar.css';
 
 const BurgerToolbar = (props) => {
-  let alignment = 'builder';
-  let routingHandler = function() {
-    return ;
-  };
 
   return (
     <div>

@@ -10,10 +10,10 @@ const SideDrawer = (props) => {
           <ListItem>
             <ListItemText secondary="Menu" />
           </ListItem>
-          <ListItem button>
+          <ListItem button selected={true}>
             <ListItemText primary="Builder" />
           </ListItem>
-          <ListItem button>
+          <ListItem button selected={false}>
             <ListItemText primary="Checkout" />
           </ListItem>
         </List>

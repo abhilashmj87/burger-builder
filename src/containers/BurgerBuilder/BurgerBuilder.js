@@ -116,7 +116,7 @@ class BurgerBuilder extends Component {
       }
     };
     
-    HTTP({
+/*     HTTP({
       // Firebase needs the .json at the end
       url: 'https://amj-burger-builder.firebaseio.com/orders.json',
       type: 'post',
@@ -128,14 +128,20 @@ class BurgerBuilder extends Component {
       // Make sure the purchase modal disappears
       this.cancelPurchase();
     }).catch( reject => {
-      // Make sure the purchase modal disappears since the purchase has started
-      //this.cancelPurchase();
-
-      console.log("hello");
       this.error = reject;
       this.setState({loaded: true});
+    }); */
+    const queryParams = [];
+    for(let i = 0 ; i < this.state.ingredients; i++) {
+      queryParams.push(encodeURIComponent(i) + '=' + encodeURIComponent(this.state.ingredients[i]));
+    }
+
+    let queryStr = queryParams.join('&');
+    this.props.history.push({
+      pathname: '/checkout',
+      search: '?' + queryStr
     });
-  }
+  } 
 
   render() {
     // tip: This if stmt needs to be inside render because, the component is re-rendered everytime there is a state change. so when we update the ingredients object in the state (we update it from componentsDidMount function), the render method is called and the below if stmt is re-executed.

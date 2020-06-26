@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Layout from './containers/Layout/Layout';
+import { BrowserRouter } from 'react-router-dom';
 
 export default class App extends Component {
 
@@ -20,7 +21,9 @@ export default class App extends Component {
   render() {
 
     return (
-        <Layout></Layout>
+        <BrowserRouter>
+          <Layout></Layout>
+        </BrowserRouter>
     );
 
     // tip: Internally, React writes the below code to replace the jsx code above. Since the below code is complex to code, we use the above jsx syntax.

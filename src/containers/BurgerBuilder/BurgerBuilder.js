@@ -116,7 +116,7 @@ class BurgerBuilder extends Component {
       }
     };
     
-/*     HTTP({
+    /*HTTP({
       // Firebase needs the .json at the end
       url: 'https://amj-burger-builder.firebaseio.com/orders.json',
       type: 'post',
@@ -132,8 +132,11 @@ class BurgerBuilder extends Component {
       this.setState({loaded: true});
     }); */
     const queryParams = [];
-    for(let i = 0 ; i < this.state.ingredients; i++) {
-      queryParams.push(encodeURIComponent(i) + '=' + encodeURIComponent(this.state.ingredients[i]));
+    const ingr = Object.keys(this.state.ingredients);
+    for(let i = 0 ; i < ingr.length; i++) {
+      if (this.state.ingredients[ingr[i]] > 0) {
+        queryParams.push(encodeURIComponent(ingr[i]) + '=' + encodeURIComponent(this.state.ingredients[ingr[i]]));
+      }
     }
 
     let queryStr = queryParams.join('&');

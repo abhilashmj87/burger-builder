@@ -106,31 +106,6 @@ class BurgerBuilder extends Component {
 
   checkoutClickedHandler = () => {
     this.setState({loaded: true});
-    let order = {
-      ingredients: this.state.ingredients,
-      price: this.state.totalPrice,
-      customer: {
-        name: 'Abhilash',
-        email: 'abhilash@abhilash.com',
-        paymentType: 'cash'
-      }
-    };
-    
-    /*HTTP({
-      // Firebase needs the .json at the end
-      url: 'https://amj-burger-builder.firebaseio.com/orders.json',
-      type: 'post',
-      data: order
-    }).then( response => {
-      // Tip: Any update to the component props after the component has been rendered has been done using the state because, updating the component's props after the component has been rendered on the screen, is an anti-pattern in react and is usually blocked by react
-      this.setState({loaded: false});
-
-      // Make sure the purchase modal disappears
-      this.cancelPurchase();
-    }).catch( reject => {
-      this.error = reject;
-      this.setState({loaded: true});
-    }); */
     const queryParams = [];
     const ingr = Object.keys(this.state.ingredients);
     for(let i = 0 ; i < ingr.length; i++) {

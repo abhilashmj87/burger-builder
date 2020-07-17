@@ -1,5 +1,7 @@
 import  React, { Component } from 'react';
 import CheckoutSummary from '../../components/Burger/CheckoutSummary/CheckoutSummary';
+import ContactData from './ContactData/ContactData';
+import { Route } from 'react-router-dom';
 
 export default class Checkout extends Component {
   state = {
@@ -34,7 +36,10 @@ export default class Checkout extends Component {
 
   render () {
     return (
-        <CheckoutSummary ingredients={this.state.ingredients} continueClicked={this.goToOrders} cancelClicked={this.cancelCheckout}></CheckoutSummary>
+        <div>
+          <CheckoutSummary ingredients={this.state.ingredients} continueClicked={this.goToOrders} cancelClicked={this.cancelCheckout}></CheckoutSummary>
+          <Route path={this.props.match.path + '/contact-data'} render={ () => (<ContactData ingredients={this.state.ingredients}></ContactData>)}></Route>
+        </div>
     );
   }
 }
